@@ -8,7 +8,9 @@ Odd numbers from the said list:
 [1, 3, 5, 7, 9]
 """
 
+from http.client import PRECONDITION_REQUIRED
 from itertools import count
+import string
 
 
 original_list = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
@@ -92,10 +94,19 @@ Elements of the said list that contain specific substring:
 []
 
 """
+o1= ['red', 'black', 'white', 'green', 'orange']
 
-filtered_list5 = list(filter(lambda x: x not in Original_list, "ack"))
+substring1= "ack"
+
+filtered_list5 = list(filter(lambda x: substring1 in x, o1))
 
 print(filtered_list5)
+
+substring2= "abc"
+
+filtered_list6 = list(filter(lambda x: substring2 in x, o1))
+
+print(filtered_list6)
 
 
 """ 6)
@@ -104,7 +115,21 @@ check whether a given string contains a capital letter, a lower case letter, a n
 """
 
 
-""" 7)
+str1 = input("Type a string")
+check1 = lambda str1: any(x.isupper() for x in str1)
+print(check1(str1))
+check2 = lambda str1: any(x.islower() for x in str1)
+print(check2(str1))
+check3= lambda str1: any(x.isdigit() for x in str1)
+print(check3(str1))
+check4= lambda str1: len(str1) >= 8
+print(check4(str1))
+
+
+
+
+"""
+ 7)
 Write a Python program to sort a list of tuples using Lambda.
 
 # Original list of tuples:
@@ -113,3 +138,8 @@ original_scores = [('English', 88), ('Science', 90), ('Maths', 97), ('Social sci
 # Expected Result:
 # [('Social sciences', 82), ('English', 88), ('Science', 90), ('Maths', 97)]
 """
+original_scores = [('English', 88), ('Science', 90), ('Maths', 97), ('Social sciences', 82)]
+
+original_scores.sort(key = lambda x: x[1])
+
+print(original_scores)
