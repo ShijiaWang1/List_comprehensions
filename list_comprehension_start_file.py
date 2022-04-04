@@ -51,7 +51,7 @@ print(newlist)
 
 sentence = "the quick brown fox jumps over the lazy dog"
 words = sentence.split()
-letters = [i.count(i) for i in words]
+letters = [len(x) for x in sentence.split()]
 print(letters)
 
 
@@ -69,19 +69,20 @@ dict = {
     "Bicycle": 7,
     "Motorcycle": 110,
 }
-values = dict.values()
-print(values)
+vehicles= {keys.upper(): values for (keys, values) in dict.items() if values < 5000}
+
+print(vehicles)
 
 
 ## Find all the numbers from 1 to 1000 that have a 4 in them
 
-# x = [i for i in range(1000) if "4" in i]
-# print(x)
+x = [i for i in range(1000) if "4" in str(i)]
+print(x)
 
-## 5 count how many times the word 'the' appears in the text file - 'sometext.txt'
-myfile = open("sometext.txt", "r")
-sometext = myfile.split()
-result = [i.count(i) for i in sometext if "the" in i]
+## count how many times the word 'the' appears in the text file - 'sometext.txt'
+myfile = open("sometext.txt", "r",encoding="utf-8")
+sometext = myfile.read()
+result = sometext.count('the')
 print(result)
 
 ## 6 Extract the numbers from the following phrase ##
@@ -92,4 +93,5 @@ phrase = (
     "event, with about 3 or 4 that were classifled as serious per event."
 )
 words = phrase.split()
-print(words)
+numbers = [x for x in words if x.isdigit()]
+print(numbers)
